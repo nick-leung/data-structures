@@ -2,10 +2,10 @@ var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var newQueue = {};
-  newQueue.count = 0;
+  newQueue.storage = {};
   newQueue.first = 0;
   newQueue.last = 0;
-  newQueue.storage = {};
+  newQueue.count = 0;
   extend(newQueue, queueMethods);
 
   return newQueue;
@@ -27,12 +27,12 @@ var queueMethods = {
   },
   dequeue: function(value) {
     if (this.count > 0) {
-      var valuePopped = (this.storage)[this.first];
+      var poppedValue = (this.storage)[this.first];
       delete (this.storage)[this.first];
       this.first++;
       this.count--;
 
-      return valuePopped;
+      return poppedValue;
     }
   },
   size: function() {

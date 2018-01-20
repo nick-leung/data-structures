@@ -15,10 +15,9 @@ var stackMethods = {
   },
   pop: function(value) {
     if (this.count > 0) {
-      this.count--;
-      var popped = (this.storage)[this.count];
+      var poppedValue = (this.storage)[--this.count];
       delete (this.storage)[this.count];
-      return popped;
+      return poppedValue;
     }
   },
   size: function() {

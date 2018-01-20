@@ -19,7 +19,7 @@ define([
   describe('stack', function() {
 
     var stack;
-    var instantiator = variant === 'pseudoclassical' ? Stack : Stack;
+    var instantiator = Stack;// variant === 'pseudoclassical' ? Stack : Stack;
     var prototypeOfInstances = variant === 'prototypal' && stackMethods;
 
     beforeEach(function() {

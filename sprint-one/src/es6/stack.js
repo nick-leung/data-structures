@@ -5,18 +5,20 @@ class Stack {
     this.count = 0;
     this.storage = {};
   }
+
   push(value) {
     (this.storage)[this.count] = value;
     this.count++;
   }
+
   pop() {
     if (this.count > 0) {
-      this.count--;
-      var popped = (this.storage)[this.count];
+      var poppedValue = (this.storage)[--this.count];
       delete (this.storage)[this.count];
     }
-    return popped;
+    return poppedValue;
   }
+
   size() {
     return this.count;
   }

@@ -16,11 +16,11 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     if (count > 0) {
-      var valueDequeued = storage[first];
+      var dequeuedValue = storage[first];
       delete storage[first];
       first++;
       count--;
-      return valueDequeued;
+      return dequeuedValue;
     }
   };
 

@@ -2,10 +2,10 @@ var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var newQueue = Object.create(queueMethods);
-  newQueue.count = 0;
+  newQueue.storage = {};
   newQueue.first = 0;
   newQueue.last = 0;
-  newQueue.storage = {};
+  newQueue.count = 0;
 
   return newQueue;
 };
@@ -14,17 +14,17 @@ var queueMethods = {};
 
 var queueMethods = {
   enqueue: function(value) {
-    this.count++;
-    this.last++;
     (this.storage)[this.last] = value;
+    this.last++;
+    this.count++;
   },
   dequeue: function(value) {
     if (this.count > 0) {
-      this.count--;
-      this.first++;
-      var popped = (this.storage)[this.first];
+      var dequeuedValue = (this.storage)[this.first];
       delete (this.storage)[this.first];
-      return popped;
+      this.first++;
+      this.count--;
+      return dequeuedValue;
     }
   },
   size: function() {
