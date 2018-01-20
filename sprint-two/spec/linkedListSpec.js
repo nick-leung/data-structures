@@ -51,5 +51,16 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should be able to remove multiple heads', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.addToTail(7);
+    linkedList.removeHead();
+    linkedList.removeHead();
+    linkedList.removeHead();
+    expect(linkedList.contains(4)).to.equal(false);
+  });
+
   // add more tests here to test the functionality of linkedList
 });
